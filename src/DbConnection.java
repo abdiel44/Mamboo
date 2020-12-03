@@ -3,6 +3,11 @@ import java.sql.DriverManager;
 
 public class DbConnection  {
 
+    public DbConnection()
+    {
+        getConnection();
+    }
+
     public Connection getConnection()
     {
         Connection connection = null;

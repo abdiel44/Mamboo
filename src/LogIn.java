@@ -35,7 +35,7 @@ public class LogIn extends JFrame implements ActionListener
 public LogIn(){
     setTitle("Mamboo");
     setSize(2000,1500);
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     setBackground(white);
     setVisible(true);
 
@@ -48,7 +48,6 @@ public LogIn(){
     //To set the style of the page title
     title.setFont(font40);
     title.setText("Log in to Mamboo");
-    //title.setBounds(810,400,600,60);
 
     //set the style of the userName input area
     userPanel.setBackground(white);
@@ -110,7 +109,6 @@ public LogIn(){
     passwordPanel.add(password);
     backgroundPanel.add(singUp);
     backgroundPanel.add(logIn);
-    //backgroundPanel.add(title);
     backgroundPanel.add(logo);
 
 }
@@ -126,10 +124,15 @@ public LogIn(){
             String password = this.password.getText(); //to save the password from the text field
 
             LogInModel logIn = new LogInModel(user, password); //to send the data to the logInModel
-            LongInController longInController = new LongInController(); //to call the authentiation method
+            if(LogInModel.existe)
+            {
+                this.dispose();
+            }
+
         }else if(command.equals("Sing Up for Mamboo"))
         {
             SingUp singUp = new SingUp();
+            this.dispose();
         }
     }
 }

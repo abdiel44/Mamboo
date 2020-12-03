@@ -206,7 +206,20 @@ public class SingUp extends JFrame implements ActionListener
 
         if(command.equals("Submit"))
         {
-           LogIn logIn = new LogIn();
+            //to save the data from the text field;
+            String Fname = this.firstName.getText();
+            String Lname = this.lastName.getText();
+            String address = this.address.getText();
+            String description = this.description.getText();
+            String phone = this.phoneNumber.getText();
+            String user = this.userName.getText();
+            String password = this.password.getText();
+           SingUpModel singUpModel = new SingUpModel(Fname,Lname,phone,user,password,address,description);
+           if(singUpModel.succesLogIn)
+           {
+               LogIn logIn = new LogIn();
+               this.dispose();
+           }
         }
     }
 
